@@ -49,7 +49,7 @@ include_once ("includes/config.php");
  while($row=$reuslt->fetch_object()){
 
 	 
- echo "<li><a href='index.php ?p={$row->id}' class='selected' title='{$row->des}'> {$row->name} </a>
+ echo "<li><a href='index.php?p={$row->id}' class='selected' title='{$row->des}'> {$row->name} </a>
  </li>";
 }
 
@@ -69,7 +69,7 @@ include_once ("includes/config.php");
  while($row=$reuslt->fetch_object()){
 
 	 
-	echo "<li><a href='index.php ?p={$row->id}' class='selected' title='{$row->des}'> {$row->name} </a>
+	echo "<li><a href='index.php?p={$row->id}' class='selected' title='{$row->des}'> {$row->name} </a>
 	</li>";
 }
 
@@ -93,7 +93,7 @@ include_once ("includes/config.php");
 		while($row=$reuslt->fetch_object()){
 
 			
-			echo "<li><a href='index.php ?p={$row->id}' class='selected' title='{$row->des}'> {$row->name} </a>
+			echo "<li><a href='index.php?p={$row->id}' class='selected' title='{$row->des}'> {$row->name} </a>
 			</li>";
 	}
 
