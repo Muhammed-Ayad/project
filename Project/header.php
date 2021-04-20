@@ -6,7 +6,7 @@ include_once ("includes/config.php");
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="rtl">
 <head>
-<title>مطاعم المنصورة</title>
+<title>مطاعم دمياط</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
@@ -18,7 +18,7 @@ include_once ("includes/config.php");
 <body>
 <div id="wrap">
 <div id="header">
-<h1><a href="#">مطاعم المنصورة</a></h1>
+<h1><a href="#">مطاعم دمياط</a></h1>
 <h2> شرقية -ايطالية -شاورما -بحرية -وجبات سريعة</h2>
 <h3></h3>
 </div>
@@ -108,16 +108,7 @@ include_once ("includes/config.php");
 if (isset($_SESSION['log']))
 
 {
-echo "<h2>لوحة التحكم</h2>";
-echo "مرحباً بك يا"."<br />";
-echo $_SESSION['name'];
-echo "<br />";
-//echo "<a href="logout.php" > تسجيل الخروج </a>";
-echo "<form method='POST' action='logout.php'>";
-echo "<input type='submit' name='submit' value='تسجيل الخروج'>";
-echo "</form>";
 
-		}else{
 ?>
 
 <div align="center" dir="rtl">
@@ -126,7 +117,6 @@ echo "</form>";
 
 		<?php
 
-		}
 		?>
 </div>
 
