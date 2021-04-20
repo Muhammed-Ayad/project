@@ -2,6 +2,7 @@
 include_once("includes/header.php");
 include_once("includes/functions.php");
 
+
 if(isset($_POST['submit'])){
 
   $name =clean_text($_POST['name']);
@@ -10,10 +11,12 @@ if(isset($_POST['submit'])){
   $img_menu =$_POST['img_menu'];
   $address = $_POST['address'];
   $res_type =$_POST['res_type'];
-  $active =(int) $_POST['active'];
-  
+  $active = $_POST['active'];
+  $id=$_POST['id'];
+
+ 
   $q="UPDATE restaurants SET
-    
+
     name='".$name."',
     des='".$des."',
     phone='".$phone."',
@@ -21,12 +24,17 @@ if(isset($_POST['submit'])){
     address='".$address."',
     res_type='".$res_type."',
     active=".$active."
-		WHERE id=".$id;	
-
+    
+		 WHERE id=".$id;
+	
+    
+    
   $reuslt=$db->query($q) or die($db->error);
   if($reuslt){
     echo "تم تعديل المطعم";
   }
+
+  
 
 }else{
     $id=(isset($_GET['id']))?(int)$_GET['id']:0;	
@@ -35,10 +43,16 @@ if(isset($_POST['submit'])){
 	if($reuslt->num_rows==1){
 		while($row=$reuslt->fetch_object()){
 
+   
+
   ?>
 <form action="" method="post">
 <table id="addarticle" width="600px">
-
+<tr>
+<td id="addarticle">
+    <input type="hidden" name="id" value="<?php echo $row->id;?>">
+		</td>
+    </tr>
 <tr>
 		<td id="addarticle">
  الاسم :
@@ -83,6 +97,7 @@ if(isset($_POST['submit'])){
 		<td id="addarticle">
  العنوان :
 		</td>
+   
 
     <td id="addarticle">
  <input type="text" name="address" value="<?php echo $row->address;?> ">
@@ -107,9 +122,10 @@ if($reuslt){
 <option value="<?php echo $row->id ;?>"><?php echo $row->res_type ;?></option>
 <?php
 
+
   } 
 }else {
-  echo "this psge is not here";
+  echo " not here ";
 
   }
 
@@ -127,19 +143,20 @@ if($reuslt){
 
     <td id="addarticle">
     نعم :
- <input type="radio" name="active"   >
- &nbsp; &nbsp; &nbsp;
- لا :
- <input type="radio" name="active"  >
-		</td>
+    <input type="radio" name="active"  <?php if($row->active =='1') echo "checked=\"checked\"";?> value="1">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+لا: 
+<input type="radio" name="active" <?php if($row->active =='0') echo "checked=\"checked\"";?> value="0">
+</td>
 	</tr>
+
   <rt>
   <td id="addarticle">
     
    
        </td>
   <td id="addarticle">
-    
+
  <input type="submit" name="submit" value="اضف التعديل">
 
 		</td>
@@ -150,7 +167,7 @@ if($reuslt){
 <?php
 }
 }else{
-	echo "الصفحة التي تريدها غير موجودة";
+	echo "غير موجود ";
 }
 ?>
 <?php
